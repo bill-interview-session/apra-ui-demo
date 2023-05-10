@@ -1,4 +1,5 @@
 # Demo App
+
 Build a search application that searches on a collection of photo data and display the result in a table format to a user.
 
 ## Getting Started

@@ -8,7 +8,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "yarn eslint && yarn prettier",
+    "eslint": "eslint --ignore-path .gitignore --ext .ts,.tsx",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.{html,json,xml,yml,md}\" -c",
+    "format": "npm run eslint --fix && yarn prettier --write && yarn lint"
   },
   "dependencies": {
     "next": "13.4.1",
@@ -24,6 +27,8 @@
     "@types/styled-components": "^5.1.26",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
     "typescript": "5.0.4"
   },
   "license": "MIT",
