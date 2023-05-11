@@ -1,3 +1,10 @@
+/* flexible import styles from antd */
+@import '~antd/es/input/style/index.css';
+@import '~antd/es/button/style/index.css';
+@import '~antd/es/select/style/index.css';
+@import '~antd/es/table/style/index.css';
+@import '~antd/es/pagination/style/index.css';
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
