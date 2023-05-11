@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-bg);
 `
 
 export const Header = styled.div`
@@ -17,25 +16,28 @@ export const Header = styled.div`
   background-color: var(--color-bg-header);
   color: var(--color);
   font-weight: bolder;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  z-index: 100;
 
   ${mediaQuery.lessThan('medium')`
     justify-content: center;
   `}
 `
 
-export const Footer = styled.div`
-  width: 100%;
-  padding: .5rem 1rem;
-  display: flex;
-  background-color: var(--color-bg);
-  color: var(--color-muted);
-  justify-content: center;
-`
-
-export const Main = styled.div`
-  padding: 1rem 1rem 100px 1rem;
+export const MainWrapper = styled.div`
   flex: 1;
-  border-radius: 4px;
-  margin: 1rem 1rem 0 1rem;
-  background-color: var(--color-bg-page);
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--color-bg);
+
+  .pageWrapper {
+    padding: 1rem;
+    background-color: var(--color-bg-page);
+    border-radius: 4px;
+  }
+
+  ${
+    mediaQuery.lessThan('medium')`
+      padding-bottom: 30px;
+  `}
 `
