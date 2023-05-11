@@ -5,7 +5,7 @@ import { Footer, Header, Main, Wrapper } from "./styled"
 type AppLayoutProps = PropsWithChildren
 
 const AppLayout = ({ children }: AppLayoutProps) => {
-return (
+  return (
     <Wrapper>
       <Header>Demo App</Header>
       <Main>{children}</Main>
@@ -15,4 +15,3 @@ return (
 }
 
 export default AppLayout
-

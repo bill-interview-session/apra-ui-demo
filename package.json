@@ -8,10 +8,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "yarn eslint && yarn prettier",
+    "lint": "npm run eslint && npm run prettier",
     "eslint": "eslint --ignore-path .gitignore --ext .ts,.tsx",
+    "eclint": "eclint fix 'src/**/*'",
     "prettier": "prettier --ignore-path .gitignore \"**/*.{html,json,xml,yml,md}\" -c",
-    "format": "npm run eslint --fix && yarn prettier --write && yarn lint"
+    "format": "npm run eclint && npm run eslint --fix && npm run prettier --write && npm run lint"
   },
   "dependencies": {
     "next": "13.4.1",
@@ -25,6 +26,7 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@types/styled-components": "^5.1.26",
+    "eclint": "^2.8.1",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "husky": "^8.0.3",
