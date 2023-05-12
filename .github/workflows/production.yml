@@ -57,8 +57,8 @@ jobs:
           ls -alh .
           cp .docker/app/Dockerfile .
           echo "Release version: $RELEASE_VERSION"
-          docker build -t $AWS_ECR_REPOSITORY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION .
-          docker push $AWS_ECR_REPOSITORY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION
+          docker build -t $ECR_REGISTRY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION .
+          docker push $ECR_REGISTRY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION
           echo "::set-output name=image::$ECR_REGISTRY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION"
 
       - name: Fill in the new image ID in the Amazon ECS task definition
