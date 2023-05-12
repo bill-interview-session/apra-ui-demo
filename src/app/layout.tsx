@@ -17,6 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Demo App</title>
+        <meta name="description" content="Build a search application that searches on a collection of photo data and display the result in a table format to a user" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={inter.className} suppressHydrationWarning>
         <QueryClientProvider client={queryClient}>
           <StyledComponentsRegistry>

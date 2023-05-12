@@ -1,0 +1,25 @@
+# ignore git files
+.git
+.gitignore
+.husky
+
+# ignore rc files
+.editorconfig
+.eslintrc.json
+.prettierrc
+.stylelintrc
+
+# environment variables
+.env*
+
+# Logs
+*.log
+
+# ide/editor files
+.vscode
+
+# others
+README.md
+
+# deps
+node_modules
