@@ -12,7 +12,7 @@ type ImagePreviewProps = {
   height: number,
 }
 
-const fallbackURL = `/assets/img/img-not-found.webp`
+const fallbackURL = `/assets/img/img-loading.svg`
 
 const ImagePreview = ({ thumbnailURL, imageURL, width, height }: ImagePreviewProps) => {
   const [showPreview, setPreview] = useState(false)
@@ -26,7 +26,7 @@ const ImagePreview = ({ thumbnailURL, imageURL, width, height }: ImagePreviewPro
         <PreviewWrapper>
           <div className="image-wrapper">
             <div className="icon" onClick={togglePreview}><div className="close" /></div>
-            <ImageFallback src={imageURL} fallback={thumbnailURL} placeholder="blur" blurDataURL={thumbnailURL} width={0} height={0} priority />
+            <ImageFallback src={imageURL} fallback={fallbackURL} width={0} height={0} unoptimized />
           </div>
         </PreviewWrapper>
       )}
