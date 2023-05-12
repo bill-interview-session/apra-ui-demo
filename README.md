@@ -19,6 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Run production mode with registry (docker)
 
 Start in the first time
+
 ```
 cd .docker
 
@@ -26,6 +27,7 @@ sh compose.sh
 ```
 
 Start if the container exist
+
 ```
 docker start demo-app
 ```
@@ -33,6 +35,7 @@ docker start demo-app
 Open [http://localhost:4000](http://localhost:4000) with your browser to see the result.
 
 ## Technology stacks
+
 - SPA: react.js (NextJS)
 - Query Language: GraphQL (graphql-request, @tanstack/react-query)
 - CSS components (Antd)
