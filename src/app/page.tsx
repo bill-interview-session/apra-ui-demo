@@ -2,13 +2,14 @@
 
 import DataTable, { DataTableRequest } from '@components/DataTable'
 
-import { useMemo } from 'react'
+import { useState } from 'react'
 
 import styles from './page.module.css'
 
-import mocked from './mocked.json'
 import { TablePaginationConfig } from 'antd'
 import ImagePreview from '@components/ImagePreview'
+import { filterAllPhotos } from '@services/photos'
+import { useQuery } from '@tanstack/react-query'
 
 const columns = [
   {
@@ -22,26 +23,31 @@ const columns = [
   {
     key: 'thumbnailUrl',
     title: 'Thumbnail',
-    render: (cell: any, row: any) =>  <ImagePreview thumbnailURL={cell} imageURL={row?.url} height={30} width={30} />,
+    render: (cell: any, row: any) => <ImagePreview thumbnailURL={cell} imageURL={row?.url} height={30} width={30} />,
   }
 ]
 
 export default function Home() {
-  const fetchedData = useMemo(() => mocked.data.photos, [])
+  const [request, setRequest] = useState<DataTableRequest>({ query: '', page: 1, limit: 10 });
 
-  const paginationConfig = useMemo<TablePaginationConfig>(() => ({ pageSize: 10, current: 1, total: fetchedData.meta.totalCount }), [fetchedData])
-
-  const handleRequestChange = (request: DataTableRequest) => {
-    console.log('REQUEST: ', request)
-  }
+  const { isLoading, data } = useQuery({
+    queryKey: ['photos', request.limit, request.page, request.query],
+    queryFn: async () => await filterAllPhotos(request.query, request.limit, request.page),
+    enabled: !!request,
+  })
 
   return (
     <div className={styles.wrapper}>
       <DataTable
         columns={columns}
-        data={fetchedData.data}
-        pagination={paginationConfig}
-        onRequest={handleRequestChange}
+        data={data?.data ?? []}
+        pagination={{
+          pageSize: request.limit,
+          current: request.page,
+          total: data?.meta.totalCount,
+        } as TablePaginationConfig}
+        onRequest={setRequest}
+        loading={isLoading}
         search
       />
     </div>

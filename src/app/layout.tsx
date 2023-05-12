@@ -1,14 +1,14 @@
+'use client'
+
 import AppLayout from '@components/AppLayout'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import StyledComponentsRegistry from '@libs/registry'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Demo App',
-  description: 'Build a search application that searches on a collection of photo data and display the result in a table format to a user',
-}
+const queryClient = new QueryClient()
 
 export default function RootLayout({
   children,
@@ -18,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning>
-        <StyledComponentsRegistry>
-          <AppLayout>{children}</AppLayout>
-        </StyledComponentsRegistry>
+        <QueryClientProvider client={queryClient}>
+          <StyledComponentsRegistry>
+            <AppLayout>{children}</AppLayout>
+          </StyledComponentsRegistry>
+        </QueryClientProvider>
       </body>
     </html>
   )
