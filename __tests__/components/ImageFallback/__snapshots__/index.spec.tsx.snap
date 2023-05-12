@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageFallback component should render snapshot 1`] = `
+<div>
+  <img
+    class="sc-eadc27a6-0 cHljDx"
+    data-nimg="1"
+    decoding="async"
+    height="30"
+    loading="lazy"
+    src="/assets/img/img-loading.svg"
+    style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+    width="30"
+  />
+</div>
+`;
