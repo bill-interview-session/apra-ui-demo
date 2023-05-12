@@ -14,7 +14,8 @@
     "prettier": "prettier --ignore-path .gitignore \"**/*.{html,json,xml,yml,md}\" -c",
     "format": "npm run eclint && npm run eslint --fix && npm run prettier --write && npm run lint",
     "test": "jest --watch",
-    "ci-test": "jest --ci --forceExit --collectCoverage --json --testLocationInResults --outputFile=report.json --maxWorkers=75%"
+    "test:cov": "jest --coverage",
+    "test:ci": "jest --ci --forceExit --collectCoverage --json --testLocationInResults --outputFile=report.json --maxWorkers=75%"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.5",
