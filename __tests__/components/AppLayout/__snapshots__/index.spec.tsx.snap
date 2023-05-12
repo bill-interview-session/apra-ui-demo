@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppLayout component should render snapshot 1`] = `
+<div>
+  <div
+    class="sc-77387f8d-0 bDZmIX"
+  >
+    <div
+      class="sc-77387f8d-1 jBaltK"
+    >
+      Demo App
+    </div>
+    <div
+      class="sc-77387f8d-2 dcRQJc"
+    >
+      <div
+        class="pageWrapper"
+      >
+        <div
+          class="testing"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
