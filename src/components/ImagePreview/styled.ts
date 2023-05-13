@@ -34,7 +34,7 @@ export const PreviewWrapper = styled.div`
       pointer-events: auto;
       width: 600px;
       height: auto;
-      min-height: 300px;
+      min-height: 600px;
       background-color: var(--color-muted);
       transition: all 1s ease-in-out;
       cursor: default;

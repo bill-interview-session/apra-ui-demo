@@ -8,7 +8,7 @@ import DataTableSearch from './search'
 type Column = {
   key: string,
   title: string,
-  render?: (cell: any, row?: Record<string, any>) => any
+  render?: (cell: any, row?: Record<string, any>) => any,
 }
 
 export type DataTableRequest = {
@@ -22,13 +22,12 @@ type DataTableProps = {
   data: object[],
   pagination?: TablePaginationConfig,
   search?: boolean,
+  loading?: boolean,
   onRequest?: (request: DataTableRequest) => void,
 }
 
 const DataTable = (props: DataTableProps) => {
-  const { columns: propColumns, data: propData, pagination, search, onRequest } = props || {}
-
-  const [data, setData] = useState(propData)
+  const { columns: propColumns, data, pagination, search, loading, onRequest } = props || {}
 
   const [requestState, setRequestState] = useState<DataTableRequest>({ query: '', page: 1, limit: 10 })
 
@@ -56,6 +55,7 @@ const DataTable = (props: DataTableProps) => {
         dataSource={data}
         columns={columns}
         pagination={pagination}
+        loading={loading}
         onChange={(pag) => changeRequestState({ page: pag.current, limit: pag.pageSize })}
       />
     </Wrapper>

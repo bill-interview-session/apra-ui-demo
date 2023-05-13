@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    image: demo-app
+    container_name: demo-app
+    build:
+      context: ../
+      dockerfile: .docker/app/Dockerfile
+    ports:
+      - 4000:3000
+    networks:
+      - demo-net
+
+networks:
+  demo-net:
+    driver: bridge

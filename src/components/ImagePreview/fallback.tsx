@@ -12,15 +12,17 @@ type ImageFallbackProps = {
 } & any
 
 const ImageFallback = (props: ImageFallbackProps) => {
-  const { src, fallback } = props
+  const { src, fallback, ...restProps } = props
 
   return (
-    <ImageWrapper {...props}
+    <ImageWrapper
+      {...restProps}
       src={src}
       placeholder="blur"
       blurDataURL={fallback}
+      alt=""
     />
   )
 }
 
-export default memo(ImageFallback, (prevProps, nextProps) => prevProps.src === nextProps.src)
+export default memo(ImageFallback, (prevProps, nextProps) => prevProps.src === nextProps.src && prevProps.fallback === nextProps.fallback)
