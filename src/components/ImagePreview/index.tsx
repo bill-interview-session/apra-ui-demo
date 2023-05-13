@@ -12,7 +12,7 @@ type ImagePreviewProps = {
   height: number,
 }
 
-const fallbackURL = `/assets/img/img-loading.svg`
+const fallbackURL = `/assets/img/placeholder.jpg`
 
 const ImagePreview = ({ thumbnailURL, imageURL, width, height }: ImagePreviewProps) => {
   const [showPreview, setPreview] = useState(false)

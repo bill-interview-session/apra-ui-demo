@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import ImageFallback from '@components/ImagePreview/fallback';
 
-const tempImg = `/assets/img/img-loading.svg`
+const tempImg = `/assets/img/placeholder.jpg`
 
 describe('ImageFallback component', () => {
   it('should render snapshot', () => {

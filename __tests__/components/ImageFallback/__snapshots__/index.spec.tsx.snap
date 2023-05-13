@@ -3,12 +3,14 @@
 exports[`ImageFallback component should render snapshot 1`] = `
 <div>
   <img
+    alt=""
     class="sc-eadc27a6-0 cHljDx"
     data-nimg="1"
     decoding="async"
     height="30"
     loading="lazy"
-    src="/assets/img/img-loading.svg"
+    src="/_next/image?url=%2Fassets%2Fimg%2Fplaceholder.jpg&w=64&q=75"
+    srcset="/_next/image?url=%2Fassets%2Fimg%2Fplaceholder.jpg&w=32&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fplaceholder.jpg&w=64&q=75 2x"
     style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
     width="30"
   />
