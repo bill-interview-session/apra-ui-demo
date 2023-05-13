@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import ImagePreview from '@components/ImagePreview';
 
-const tempImg = `/assets/img/img-loading.svg`
+const tempImg = `/assets/img/placeholder.jpg`
 
 describe('ImagePreview component', () => {
   it('should render snapshot', () => {

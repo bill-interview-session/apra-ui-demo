@@ -20,6 +20,7 @@ const ImageFallback = (props: ImageFallbackProps) => {
       src={src}
       placeholder="blur"
       blurDataURL={fallback}
+      alt=""
     />
   )
 }
