@@ -2,8 +2,8 @@ name: Deploy Container to AWS
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -30,10 +30,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set output
-        id: vars
-        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -49,17 +45,17 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+          IMG_TAG: latest
         run: |
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
           ls -alh .
           cp .docker/app/Dockerfile .
-          echo "Release version: $RELEASE_VERSION"
-          docker build -t $ECR_REGISTRY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION .
-          docker push $ECR_REGISTRY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION
-          echo "::set-output name=image::$ECR_REGISTRY/$AWS_ECR_REPOSITORY:$RELEASE_VERSION"
+          echo "Image Tag: $IMG_TAG"
+          docker build -t $ECR_REGISTRY/$AWS_ECR_REPOSITORY:$IMG_TAG .
+          docker push $ECR_REGISTRY/$AWS_ECR_REPOSITORY:$IMG_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$AWS_ECR_REPOSITORY:$IMG_TAG"
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
