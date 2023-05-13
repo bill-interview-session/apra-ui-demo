@@ -1,5 +1,7 @@
 # Demo App
 
+![master - deployment](https://img.shields.io/github/actions/workflow/status/bill-interview-session/demo-app/production.yml?branch=master&label=deployment&style=flat-square)
+
 Build a search application that searches on a collection of photo data and display the result in a table format to a user.
 
 ## Preview
